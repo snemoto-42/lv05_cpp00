@@ -24,7 +24,6 @@ class Contact {
 		
 		static void	input( void );
 		static bool	check( void );
-		static void	add( void );
 
 	private:
 		std::string firstname;

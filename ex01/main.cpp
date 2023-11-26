@@ -20,21 +20,20 @@ int	main(void)
 		std::string command;
 		std::cin >> command;
 
-		Contact ct;
 		PhoneBook pb;
-
 		if (command == "ADD")
 		{
+			Contact ct;
 			ct.input();
 			if (!ct.check())
-				std::cout << "Error add\n";
+				std::cout << "Error ADD\n";
 			else
-				ct.add();
+				pb.add();
 		}
 		else if (command == "SEARCH")
 		{
-			pb.input();
 			pb.display();
+			pb.input();
 		}
 		else if (command == "EXIT")
 		{
@@ -45,3 +44,6 @@ int	main(void)
 	}
 	return (0);
 }
+
+// Once a command has been correctly executed, the program waits for another one. It
+// stops when the user inputs EXIT.

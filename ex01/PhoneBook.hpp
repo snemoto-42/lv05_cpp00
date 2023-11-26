@@ -22,8 +22,9 @@ class PhoneBook {
 		PhoneBook( void );
 		~PhoneBook( void );
 
-		static void input( void );
+		static void add( void );
 		static void display( void );
+		static void input( void );
 
 	private:
 		std::string index;
