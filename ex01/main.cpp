@@ -16,26 +16,26 @@
 int	main(void)
 {
 	unsigned int	index = 0;
+	PhoneBook		pb;
+	Contact			ct[8];
 
 	while (1)
 	{
-		std::cout << "Enter Comand : ";
+		std::cout << "Enter Command : ";
 		std::string command;
 		std::cin >> command;
 
-		PhoneBook pb;
-
 		if (command == "ADD")
 		{
-			Contact ct;
-
-			if (!ct.input())
+			if (!ct[index].input())
 				std::cout << "Error ADD\n";
 			else
 			{
-				++index;
-				pb.add(index, ct);
+				pb.add(index, ct[index]);
 				std::cout << "---Finish ADD---\n";
+				++index;
+				if (index == 8)
+					index = 0;
 			}
 		}
 		else if (command == "SEARCH")
@@ -50,7 +50,20 @@ int	main(void)
 			break ;	
 		}
 		else
+		{
 			std::cout << "Error Command\n";
+		}
 	}
 	return (0);
 }
+
+// マニピュレータの活用
+
+// cin
+// 矢印キーなど入力を受け付けない
+// Enter Command : Error Comand の無限ループ
+// 空行はcinの終了
+// A saved contact can’t have empty fields.
+
+// cout
+// 課題要件

@@ -28,8 +28,7 @@ class PhoneBook {
 		void search( void );
 
 	private:
-		Contact	ct[7];
-
+		Contact	c[8];
 };
 
 #endif /* __PHONEBOOK_H__ */

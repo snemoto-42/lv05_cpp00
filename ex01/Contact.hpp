@@ -24,12 +24,15 @@ class Contact {
 		
 		bool	input( void );
 
-	private:
 		std::string firstname;
 		std::string lastname;
 		std::string nickname;
 		std::string phonenumber;
 		std::string secret;
+
+		bool		added;
+
+	private:
 
 };
 
