@@ -15,6 +15,7 @@
 #define __PHONEBOOK_H__
 
 # include <iostream>
+# include "Contact.hpp"
 
 class PhoneBook {
 
@@ -22,15 +23,12 @@ class PhoneBook {
 		PhoneBook( void );
 		~PhoneBook( void );
 
-		static void add( void );
-		static void display( void );
-		static void input( void );
+		void add( unsigned int, Contact );
+		void display( void );
+		void search( void );
 
 	private:
-		std::string index;
-		std::string firstname;
-		std::string lastname;
-		std::string nickname;
+		Contact	ct[7];
 
 };
 

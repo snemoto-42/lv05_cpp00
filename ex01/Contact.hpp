@@ -14,7 +14,7 @@
 #ifndef __CONTACT_H__
 #define __CONTACT_H__
 
-#include <iostream>
+# include <iostream>
 
 class Contact {
 
@@ -22,8 +22,7 @@ class Contact {
 		Contact( void );
 		~Contact( void );
 		
-		static void	input( void );
-		static bool	check( void );
+		bool	input( void );
 
 	private:
 		std::string firstname;

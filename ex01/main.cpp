@@ -15,35 +15,42 @@
 
 int	main(void)
 {
+	unsigned int	index = 0;
+
 	while (1)
 	{
+		std::cout << "Enter Comand : ";
 		std::string command;
 		std::cin >> command;
 
 		PhoneBook pb;
+
 		if (command == "ADD")
 		{
 			Contact ct;
-			ct.input();
-			if (!ct.check())
+
+			if (!ct.input())
 				std::cout << "Error ADD\n";
 			else
-				pb.add();
+			{
+				++index;
+				pb.add(index, ct);
+				std::cout << "---Finish ADD---\n";
+			}
 		}
 		else if (command == "SEARCH")
 		{
 			pb.display();
-			pb.input();
+			pb.search();
+			std::cout << "---Finish SEARCH---\n";
 		}
 		else if (command == "EXIT")
 		{
-			break ;
+			std::cout << "---Good Bye---\n";
+			break ;	
 		}
 		else
 			std::cout << "Error Command\n";
 	}
 	return (0);
 }
-
-// Once a command has been correctly executed, the program waits for another one. It
-// stops when the user inputs EXIT.
