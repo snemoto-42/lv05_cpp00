@@ -14,7 +14,8 @@
 #ifndef __CONTACT_H__
 #define __CONTACT_H__
 
-# include <iostream>
+#include <iostream>
+#include <iomanip>
 
 class Contact {
 

@@ -28,31 +28,47 @@ void	PhoneBook::display(void) {
 
 	unsigned int	i = 0;
 
+	std::cout << std::setw(10) << std::right << "index" << "|"; 
+	std::cout << std::setw(10) << std::right << "firstname" << "|"; 
+	std::cout << std::setw(10) << std::right << "lastname" << "|"; 
+	std::cout << std::setw(10) << std::right << "nickname" << "\n";
 	while (c[i].added == true && i < 8)
 	{
-		std::cout << i << "|" << c[i].firstname << "|" << c[i].lastname << "|" << c[i].nickname << "\n";
+
+		pb_firstname = c[i].firstname;
+		pb_lastname = c[i].lastname;
+		pb_nickname = c[i].nickname;
+
+		std::cout << std::setw(10) << std::right << i + 1 << "|";
+		if (pb_firstname.length() > 10)
+			pb_firstname.replace(9,pb_firstname.length() - 9,".");
+		std::cout << std::setw(10) << std::right << pb_firstname << "|";
+		if (pb_lastname.length() > 10)
+			pb_lastname.replace(9,pb_lastname.length() - 9,".");
+		std::cout << std::setw(10) << std::right << pb_lastname << "|";
+		if (pb_nickname.length() > 10)
+			pb_nickname.replace(9,pb_nickname.length() - 9,".");
+		std::cout << std::setw(10) << std::right << pb_nickname << "\n";
 		++i;
 	}
 }
 
-// Display the saved contacts as a list of 4 columns: index, first name, last name and nickname.
-// Each column must be 10 characters wide. A pipe character (’|’) separates them.
-// The text must be right-aligned. If the text is longer than the column, it must be truncated and the last displayable character must be replaced by a dot (’.’).
-
 void	PhoneBook::search(void) {
 
+	std::string		str;
 	unsigned int	i;
 
 	std::cout << "Enter Index : ";
-	std::cin >> i;
-	if (i < 8)
+	std::getline(std::cin, str);
+	i = std::atoi(str.c_str());
+	if(i < 1 || 8 < i || c[i - 1].added == false)
 	{
-		std::cout << "firstname : " << c[i].firstname << "\n";
-		std::cout << "lastname : " << c[i].lastname << "\n";
-		std::cout << "nickname : "<< c[i].nickname << "\n";
-		std::cout << "phonenumber : " << c[i].phonenumber << "\n";
-		std::cout << "secret : " << c[i].secret << "\n";
-	}
-	else
 		std::cout << "index is out of range\n";
+		return ;
+	}
+	std::cout << "firstname : " << c[i - 1].firstname << "\n";
+	std::cout << "lastname : " << c[i - 1].lastname << "\n";
+	std::cout << "nickname : "<< c[i - 1].nickname << "\n";
+	std::cout << "phonenumber : " << c[i - 1].phonenumber << "\n";
+	std::cout << "secret : " << c[i - 1].secret << "\n";
 }

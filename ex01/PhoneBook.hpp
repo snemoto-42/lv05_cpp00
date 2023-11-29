@@ -14,8 +14,9 @@
 #ifndef __PHONEBOOK_H__
 #define __PHONEBOOK_H__
 
-# include <iostream>
-# include "Contact.hpp"
+#include "Contact.hpp"
+#include <iostream>
+#include <iomanip>
 
 class PhoneBook {
 
@@ -28,7 +29,10 @@ class PhoneBook {
 		void search( void );
 
 	private:
-		Contact	c[8];
+		Contact		c[8];
+		std::string pb_firstname;
+		std::string pb_lastname;
+		std::string pb_nickname;
 };
 
 #endif /* __PHONEBOOK_H__ */

@@ -18,12 +18,12 @@ int	main(void)
 	unsigned int	index = 0;
 	PhoneBook		pb;
 	Contact			ct[8];
+	std::string		command;
 
 	while (1)
 	{
 		std::cout << "Enter Command : ";
-		std::string command;
-		std::cin >> command;
+		std::getline(std::cin, command);
 
 		if (command == "ADD")
 		{
@@ -51,19 +51,9 @@ int	main(void)
 		}
 		else
 		{
-			std::cout << "Error Command\n";
+			std::cout << "---Error Command---\n";
 		}
+		std::cin.clear();
 	}
 	return (0);
 }
-
-// マニピュレータの活用
-
-// cin
-// 矢印キーなど入力を受け付けない
-// Enter Command : Error Comand の無限ループ
-// 空行はcinの終了
-// A saved contact can’t have empty fields.
-
-// cout
-// 課題要件

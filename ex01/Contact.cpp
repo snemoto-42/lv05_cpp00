@@ -13,7 +13,7 @@
 #include "Contact.hpp"
 
 Contact::Contact(void) {
-	;
+	added = false;
 }
 
 Contact::~Contact(void) {
@@ -23,22 +23,30 @@ Contact::~Contact(void) {
 bool	Contact::input(void) {
 
 	std::cout << "Enter firstname : ";
-	std::cin >> firstname;
-	std::cout << "Enter lastname : ";
-	std::cin >> lastname;
-	std::cout << "Enter nickname : ";
-	std::cin >> nickname;
-	std::cout << "Enter phonenumber : ";
-	std::cin >> phonenumber;
-	std::cout << "Enter secret : ";
-	std::cin >> secret;
-
-	if (firstname.empty() || \
-		lastname.empty() || \
-		nickname.empty() || \
-		phonenumber.empty() || \
-		secret.empty())
+	std::getline(std::cin, firstname);
+	if (firstname.empty())
 		return (false);
+
+	std::cout << "Enter lastname : ";
+	std::getline(std::cin, lastname);
+	if (lastname.empty())
+		return (false);
+
+	std::cout << "Enter nickname : ";
+	std::getline(std::cin, nickname);
+	if (nickname.empty())
+		return (false);
+
+	std::cout << "Enter phonenumber : ";
+	std::getline(std::cin, phonenumber);
+	if (phonenumber.empty())
+		return (false);
+
+	std::cout << "Enter secret : ";
+	std::getline(std::cin, secret);
+	if (secret.empty())
+		return (false);	
+
 	added = true;
 	return (true);
 }
