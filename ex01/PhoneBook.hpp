@@ -6,7 +6,7 @@
 /*   By: snemoto <snemoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:26:28 by snemoto           #+#    #+#             */
-/*   Updated: 2023/10/15 16:28:38 by snemoto          ###   ########.fr       */
+/*   Updated: 2023/11/30 21:19:14 by snemoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ class PhoneBook {
 		void search( void );
 
 	private:
-		Contact		c[8];
-		std::string pb_firstname;
-		std::string pb_lastname;
-		std::string pb_nickname;
+		Contact		_c[8];
 };
 
 #endif /* __PHONEBOOK_H__ */

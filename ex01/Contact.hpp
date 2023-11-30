@@ -6,7 +6,7 @@
 /*   By: snemoto <snemoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:47:14 by snemoto           #+#    #+#             */
-/*   Updated: 2023/10/15 16:28:30 by snemoto          ###   ########.fr       */
+/*   Updated: 2023/11/30 21:22:43 by snemoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,16 @@ class Contact {
 		~Contact( void );
 		
 		bool	input( void );
-
-		std::string firstname;
-		std::string lastname;
-		std::string nickname;
-		std::string phonenumber;
-		std::string secret;
-
-		bool		added;
+		void	display( void );
+		void	search( void );
+		bool	added;
 
 	private:
-
+		std::string _firstname;
+		std::string _lastname;
+		std::string _nickname;
+		std::string _phonenumber;
+		std::string _secret;
 };
 
 #endif /* __CONTACT_H__ */

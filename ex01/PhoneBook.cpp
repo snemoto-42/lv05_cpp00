@@ -6,7 +6,7 @@
 /*   By: snemoto <snemoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:26:36 by snemoto           #+#    #+#             */
-/*   Updated: 2023/11/30 20:05:29 by snemoto          ###   ########.fr       */
+/*   Updated: 2023/11/30 21:22:11 by snemoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ PhoneBook::~PhoneBook(void) {
 	;
 }
 
-void	PhoneBook::add(unsigned int index, Contact ct){
-	c[index] = ct;
+void	PhoneBook::add(unsigned int i, Contact ct){
+	_c[i] = ct;
 }
 
 void	PhoneBook::display(void) {
@@ -33,22 +33,10 @@ void	PhoneBook::display(void) {
 	std::cout << std::setw(10) << std::right << "lastname" << "|"; 
 	std::cout << std::setw(10) << std::right << "nickname" << "\n";
 
-	while (c[i].added == true && i < 8)
+	while (_c[i].added == true && i < 8)
 	{
-		pb_firstname = c[i].firstname;
-		pb_lastname = c[i].lastname;
-		pb_nickname = c[i].nickname;
-
 		std::cout << std::setw(10) << std::right << i + 1 << "|";
-		if (pb_firstname.length() > 10)
-			pb_firstname.replace(9,pb_firstname.length() - 9,".");
-		std::cout << std::setw(10) << std::right << pb_firstname << "|";
-		if (pb_lastname.length() > 10)
-			pb_lastname.replace(9,pb_lastname.length() - 9,".");
-		std::cout << std::setw(10) << std::right << pb_lastname << "|";
-		if (pb_nickname.length() > 10)
-			pb_nickname.replace(9,pb_nickname.length() - 9,".");
-		std::cout << std::setw(10) << std::right << pb_nickname << "\n";
+		_c[i].display();
 		++i;
 	}
 }
@@ -67,15 +55,10 @@ void	PhoneBook::search(void) {
 	}
 
 	i = std::atoi(str.c_str());
-	if (i < 1 || 8 < i || c[i - 1].added == false)
+	if (i < 1 || 8 < i || _c[i - 1].added == false)
 	{
 		std::cout << "index is out of range\n";
 		return ;
 	}
-
-	std::cout << "firstname : " << c[i - 1].firstname << "\n";
-	std::cout << "lastname : " << c[i - 1].lastname << "\n";
-	std::cout << "nickname : "<< c[i - 1].nickname << "\n";
-	std::cout << "phonenumber : " << c[i - 1].phonenumber << "\n";
-	std::cout << "secret : " << c[i - 1].secret << "\n";
+	_c[i - 1].search();
 }
