@@ -6,7 +6,7 @@
 /*   By: snemoto <snemoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:26:36 by snemoto           #+#    #+#             */
-/*   Updated: 2023/10/15 16:29:57 by snemoto          ###   ########.fr       */
+/*   Updated: 2023/11/30 20:05:29 by snemoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	PhoneBook::display(void) {
 	std::cout << std::setw(10) << std::right << "firstname" << "|"; 
 	std::cout << std::setw(10) << std::right << "lastname" << "|"; 
 	std::cout << std::setw(10) << std::right << "nickname" << "\n";
+
 	while (c[i].added == true && i < 8)
 	{
-
 		pb_firstname = c[i].firstname;
 		pb_lastname = c[i].lastname;
 		pb_nickname = c[i].nickname;
@@ -60,17 +60,19 @@ void	PhoneBook::search(void) {
 
 	std::cout << "Enter Index : ";
 	std::getline(std::cin, str);
-	i = std::atoi(str.c_str());
 	if (std::cin.eof() || std::cin.bad())
 	{
 		std::cout << "\n---Error Input---\n";
 		std::exit(0);
 	}
-	if(i < 1 || 8 < i || c[i - 1].added == false)
+
+	i = std::atoi(str.c_str());
+	if (i < 1 || 8 < i || c[i - 1].added == false)
 	{
 		std::cout << "index is out of range\n";
 		return ;
 	}
+
 	std::cout << "firstname : " << c[i - 1].firstname << "\n";
 	std::cout << "lastname : " << c[i - 1].lastname << "\n";
 	std::cout << "nickname : "<< c[i - 1].nickname << "\n";
