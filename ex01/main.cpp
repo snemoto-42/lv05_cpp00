@@ -24,8 +24,12 @@ int	main(void)
 	{
 		std::cout << "Enter Command : ";
 		std::getline(std::cin, command);
-
-		if (command == "ADD")
+		if (std::cin.eof() || std::cin.bad())
+		{
+			std::cout << "\n---Error Input---\n";
+			std::exit(0);
+		}
+		else if (command == "ADD")
 		{
 			if (!ct[index].input())
 				std::cout << "Error ADD\n";
@@ -50,10 +54,7 @@ int	main(void)
 			break ;	
 		}
 		else
-		{
 			std::cout << "---Error Command---\n";
-		}
-		std::cin.clear();
 	}
 	return (0);
 }

@@ -61,6 +61,11 @@ void	PhoneBook::search(void) {
 	std::cout << "Enter Index : ";
 	std::getline(std::cin, str);
 	i = std::atoi(str.c_str());
+	if (std::cin.eof() || std::cin.bad())
+	{
+		std::cout << "\n---Error Input---\n";
+		std::exit(0);
+	}
 	if(i < 1 || 8 < i || c[i - 1].added == false)
 	{
 		std::cout << "index is out of range\n";

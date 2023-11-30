@@ -20,33 +20,37 @@ Contact::~Contact(void) {
 	;
 }
 
-bool	Contact::input(void) {
+static std::string	check_and_input(std::string msg)
+{
+	std::string str;
 
-	std::cout << "Enter firstname : ";
-	std::getline(std::cin, firstname);
-	if (firstname.empty())
+	std::cout << msg;
+	std::getline(std::cin, str);
+	if (std::cin.eof() || std::cin.bad())
+	{
+		std::cout << "\n---Error Input---\n";
+		std::exit(0);
+	}
+	return (str);
+}
+
+bool	Contact::input(void)
+{
+	this->firstname = check_and_input("Enter firstname : ");
+	if (this->firstname.empty())
 		return (false);
-
-	std::cout << "Enter lastname : ";
-	std::getline(std::cin, lastname);
-	if (lastname.empty())
+	this->lastname = check_and_input("Enter lastname : ");
+	if (this->lastname.empty())
 		return (false);
-
-	std::cout << "Enter nickname : ";
-	std::getline(std::cin, nickname);
-	if (nickname.empty())
+	this->nickname = check_and_input("Enter nickname : ");
+	if (this->nickname.empty())
 		return (false);
-
-	std::cout << "Enter phonenumber : ";
-	std::getline(std::cin, phonenumber);
-	if (phonenumber.empty())
+	this->phonenumber = check_and_input("Enter phonenumber : ");
+	if (this->phonenumber.empty())
 		return (false);
-
-	std::cout << "Enter secret : ";
-	std::getline(std::cin, secret);
-	if (secret.empty())
-		return (false);	
-
+	this->secret = check_and_input("Enter secret : ");
+	if (this->secret.empty())
+		return (false);
 	added = true;
 	return (true);
 }
